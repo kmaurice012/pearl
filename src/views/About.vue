@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <Pearl style="width: 100px" />
+  <div>
+    <Pearl />
   </div>
 </template>
 
