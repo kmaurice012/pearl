@@ -1,8 +1,6 @@
 <template>
   <div id="app">
     <div id="nav">
-      <!-- <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> -->
       <div class="hidden">
         <vs-sidebar absolute hover-expand reduce v-model="active" open>
           <template >
@@ -128,6 +126,9 @@ export default {
 
 </script>
 <style>
+/* #nav{
+  position: fixed;
+} */
 @import url('https://fonts.googleapis.com/css?family=Aldrich' );
 h1{
   margin-left: 25px;
@@ -141,14 +142,14 @@ h1{
   color: #2c3e50;
 }
 
-#nav {
+/* #nav {
   padding: 30px;
 }
 
 #nav a {
   font-weight: bold;
   color: #2c3e50;
-}
+} */
 
 #nav a.router-link-exact-active {
   color: #42b983;

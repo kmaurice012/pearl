@@ -1,7 +1,7 @@
 <template>
-    <div>
-       <div id="game">
-<div id="cont">
+  <div style="display: flex;">
+    <div id="game">
+      <div id="cont">
         <h3>Game of The Week</h3>
         <div>
           <h4>Need For Speed</h4>
@@ -24,35 +24,61 @@
           </p>
         </div>
       </div>
-       </div>
+    
     </div>
+      <div id="game">
+      <div id="cont">
+        <h3>Game of The Week</h3>
+        <div>
+          <h4>Need For Speed</h4>
+
+          <p>
+            Need for Speed Payback is a racing video game developed by Ghost
+            Games and published by Electronic Arts for Microsoft Windows,
+            PlayStation 4 and Xbox One. It is the twenty-third installment in
+            the Need for Speed series. Need for Speed Payback is a racing video
+            game developed by Ghost Games and published by Electronic Arts for
+            Microsoft Windows, PlayStation 4 and Xbox One. It is the
+            twenty-third installment in the Need for Speed series. Need for
+            Speed Payback is a racing video game developed by Ghost Games and
+            published by Electronic Arts for Microsoft Windows, PlayStation 4
+            and Xbox One. It is the twenty-third installment in the Need for
+            Speed series. Need for Speed Payback is a racing video game
+            developed by Ghost Games and published by Electronic Arts for
+            Microsoft Windows, PlayStation 4 and Xbox One. It is the
+            twenty-third installment in the Need for Speed series.
+          </p>
+        </div>
+      </div>
+    
+    </div>
+  </div>
 </template>
 
 <script>
-    export default {
-      name: "card",
-  props: {
-  
-  },   
-    }
+export default {
+  name: "card",
+  props: {},
+};
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css?family=Aldrich' );
+@import url("https://fonts.googleapis.com/css?family=Aldrich");
 @import url("https://fonts.googleapis.com/css?family=Abel");
 @import url("https://fonts.googleapis.com/css?family=Bangers");
 #game {
-  width: 700px;
+  width: 750px;
   height: 400px;
   background-color: black;
   margin-left: 80px;
   border-radius: 30px;
+  display: flex;
 }
 #cont {
   display: flex;
 }
 h3 {
-font-family: 'Aldrich';
+  font-family: "Aldrich";
   color: white;
   margin-top: 30px;
   font-size: 35px;
@@ -68,5 +94,11 @@ h4 {
 p {
   color: white;
   font-family: "Abel";
+}
+#exh {
+  width: 700px;
+  height: 400px;
+  background-color: black;
+ 
 }
 </style>
