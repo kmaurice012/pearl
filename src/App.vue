@@ -103,7 +103,8 @@
           </template>
         </vs-sidebar>
       </div>
-      <h1 style="font-family: 'Aldrich'">Black_Pearl</h1>
+      <h1 style="font-family: 'Aldrich';">Black_Pearl</h1>
+      
     </div>
     <router-view />
     <!-- <Card/> -->
@@ -128,7 +129,7 @@ export default {
 } */
 @import url("https://fonts.googleapis.com/css?family=Aldrich");
 h1 {
-  margin-left: 25px;
+  margin-left: 715px;
   font-size: 50px;
 }
 #app {
@@ -137,6 +138,7 @@ h1 {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
 }
 
  #nav {
