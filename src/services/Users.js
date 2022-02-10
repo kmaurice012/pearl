@@ -1,7 +1,6 @@
 
 import axios from "axios";
 
-let text;
 
   const apiClient = axios.create({
     baseURL: `http://localhost:3000`,
@@ -19,11 +18,11 @@ let text;
       console.log(response.data);
     })
     .catch((error) => {
-      text.innerHTML = error;
+      console.log(error);
     });
-    let gamers = JSON.parse(localStorage.gamers);
- console.log(gamers, "this is the obj");
+    let Gamers = JSON.parse(localStorage.gamers);
+ console.log(Gamers, "this is the obj");
 
 export default {
-    gamers
+    Gamers
 }

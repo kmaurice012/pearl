@@ -1,4 +1,6 @@
 <template>
+  <div>
+<template>
   <div class="table">
     <h4>Gamers</h4>
     <Create />
@@ -12,8 +14,8 @@
           <vs-th> CUstom </vs-th>
         </vs-tr>
       </template>
-      <template #tbody>
-        <vs-tr :key="i" v-for="(tr, i) in games" :data="tr">
+      <template #tbody style="text-align: start;">
+        <vs-tr :key="i" v-for="(tr, i) in gamers" :data="tr">
           <vs-td>
             {{ tr.id }}
           </vs-td>
@@ -37,9 +39,9 @@
             <vs-button
               danger
               border
-              :active="active == 2"
-              @click="deleteGamers(row.id)"
-              id="Id"
+              :active="active == 1"
+              @click="deleteGamer(tr.id)"
+              :id="tr.id"
             >
               Delete
             </vs-button>
@@ -50,35 +52,29 @@
     <Gamers />
   </div>
 </template>
+  </div>
+</template>
 
 <script>
-import Create from "../components/Create.vue";
-import Gamers from "../services/Users.js";
+import Gamers from '../services/Users.js'
 
-let games = Gamers.Gamers;
-export default {
-  components: {
-    Gamers,
-    Create,
-  },
+ let gamers = Gamers.Gamers
+  console.log(gamers,"gameeers");
+  export default {
+    name: "gamers",
+    components: {
+      Gamers
+    },
 
   data: () => ({
     search: "",
-    games,
-   
-    
+    gamers,
+
   }),
   methods: {
-    // editCustomer(customer) {
-    //   this.editId = customer.id;
-    //   this.showAdd = false;
-    // },
-    addGamer() {
-      this.editId = "";
-      this.showAdd = true;
-    },
-    deleteGamer(gamer) {
-      this.$swal({
+    deleteGamer(id){
+      console.log(id);
+         this.$swal({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
         type: "warning",
@@ -86,17 +82,18 @@ export default {
         confirmButtonText: "Yes, delete it!",
       }).then((result) => {
         if (result.value) {
-          this.$store.dispatch("removeGamer", gamer).then((res) => {
+          this.$store.dispatch("removeGamer", id).then((res) => {
             if (res)
               this.$swal("Deleted!", "Record has been deleted.", "success");
             else this.$swal("Fail!", "Fail to delete record.", "error");
           });
         }
       });
-    },
-  },
-};
+    }
+  }
 
+  }
+ 
 
 </script>
 
@@ -104,6 +101,6 @@ export default {
 .table {
   width: 900px;
   margin-left: 500px;
-  padding-top: 130px;
+  padding-top: 145px;
 }
 </style>

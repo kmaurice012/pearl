@@ -8,9 +8,9 @@ export default new Vuex.Store({
     gamers: gamers,
   },
   mutations: {
-    delete_gamer(state, index) {
-      if (index > -1) {
-        state.gamers.splice(index, 1);
+    delete_gamer(state, id) {
+      if (id > -1) {
+        state.gamers.splice(id, 1);
       }
     }
   },
@@ -18,28 +18,16 @@ export default new Vuex.Store({
     state.gamers.push(payload);
   },
   actions: {
-    removeGamer({ state, commit }, id) {
-      try {
-        var index = state.gamers
-          .map((i) => {
-            if (id == i.id) return true;
-            return false;
+    removeGamer(id) {
+  //  console.log(id, "Almost there");
+   this.$http.delete('http://localhost:3000/gamers/' + id)
+          .then(() => {              
+              this.gamers.splice(id, 1)
           })
-          .indexOf(true);
-
-        if (index != -1) {
-          commit("remove_gamer", index);
-          return true;
-        } else {
-          return false;
-        }
-      } catch (error) {
-        return false;
-      }
     },
   },
   addGamer({ commit }, payload) {
-    commit("add_customer", payload);
+    commit("add_gamer", payload);
   },
   modules: {},
 });

@@ -6,6 +6,9 @@ import store from "./store";
 import Vuesax from "vuesax";
 import "material-icons/iconfont/material-icons.css";
 import "vuesax/dist/vuesax.css"; //Vuesax styles
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+Vue.use(VueSweetalert2);
 Vue.use(Vuesax, {
   colors: {
     primary:'#5b3cc4',
