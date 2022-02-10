@@ -6,34 +6,44 @@
       <template #header>
         <h4 class="not-margin">Welcome to <b>Black_Pearl</b></h4>
       </template>
+      <form>
+        <div class="con-form" style="padding-left: 80px">
+          <vs-input v-model="fname" placeholder="FirstName">
+            <template #icon> F</template>
+          </vs-input>
 
-      <div class="con-form" style="padding-left: 80px">
-        <vs-input v-model="text" placeholder="FirstName" >
-          <template #icon> F</template>
-        </vs-input>
-        
-        <vs-input v-model="text" placeholder="Lastname" style="margin-top: 15px;">
-          <template #icon> L </template>
-        </vs-input>
-        <vs-input v-model="email" placeholder="Email" style="margin-top: 15px;">
-          <template #icon> @ </template>
-        </vs-input>
-        <vs-input type="password" v-model="password" placeholder="Password" style="margin-top: 15px;">
-          <template #icon>
-            <i class="bx bxs-lock"></i>P
-          </template>
-        </vs-input>
-        <!-- <div class="flex">
+          <vs-input
+            v-model="lname"
+            placeholder="Lastname"
+            style="margin-top: 15px"
+          >
+            <template #icon> L </template>
+          </vs-input>
+          <vs-input
+            v-model="email"
+            placeholder="Email"
+            style="margin-top: 15px"
+          >
+            <template #icon> @ </template>
+          </vs-input>
+          <vs-input
+            type="password"
+            v-model="password"
+            placeholder="Password"
+            style="margin-top: 15px"
+          >
+            <template #icon> <i class="bx bxs-lock"></i>P </template>
+          </vs-input>
+          <!-- <div class="flex">
           <vs-checkbox v-model="remember">Remember me</vs-checkbox>
           <a href="#">Forgot Password?</a>
         </div> -->
-      </div>
+        </div>
+      </form>
 
-      <template #footer >
-        <div class="footer-dialog" style="padding-top: 15px 5px 5px 15px;">
-          <vs-button block> Sign up </vs-button>
-
-         
+      <template #footer>
+        <div class="footer-dialog" style="padding-top: 15px 5px 5px 15px">
+          <vs-button block @click="create()"> Sign up </vs-button>
         </div>
       </template>
     </vs-dialog>
@@ -45,13 +55,32 @@ export default {
   props: {},
   data: () => ({
     active: false,
-    email: "",
+    staff: {
+   email: "",
     password: "",
-    firstname: "",
-    lastname: ""
+    fname: "",
+    lname: "",
+  }
+ 
   }),
-};
 
+  methods: {
+    create() {
+    //   e.preventDefault();
+    //   const newGamer = {
+    //     id: this.data,
+    //     id: Math.floor(Math.random() * 100),
+    //   };
+    //   if (newGamer.title !== "") {
+    //     this.$emit("add-gamer event", new Gamer);
+    //   }
+    //   this.data = "";
+    let dat = this.staff
+     console.log(dat, "this is theeeeee dattaaaaaaaaaaaa");
+    },
+  },
+};
+ 
 </script>
 
 <style scoped>

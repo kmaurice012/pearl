@@ -58,7 +58,7 @@
                 <template #icon>
                   <i class="bx bxl-facebook"></i>
                 </template>
-                Facebook
+                Facebook  ``
               </vs-sidebar-item>
             </vs-sidebar-group>
           </router-link>
