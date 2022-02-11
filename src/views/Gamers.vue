@@ -32,8 +32,7 @@
                 <vs-button
                   :active="active == 0"
                   @click="
-                    () => test(tr.id, tr.FirstName, tr.LastName, tr.Email)
-                  "
+                    () => test(tr.id, tr.FirstName, tr.LastName, tr.Email)"
                 >
                   EDIT
                 </vs-button>

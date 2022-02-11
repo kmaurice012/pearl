@@ -8,19 +8,19 @@
       </template>
       <form>
         <div class="con-form" style="padding-left: 80px">
-          <vs-input v-model="fname" placeholder="FirstName">
+          <vs-input v-model="staff.FirstName" placeholder="FirstName">
             <template #icon> F</template>
           </vs-input>
-
+e
           <vs-input
-            v-model="lname"
+            v-model="staff.LastName"
             placeholder="Lastname"
             style="margin-top: 15px"
           >
             <template #icon> L </template>
           </vs-input>
           <vs-input
-            v-model="email"
+            v-model="staff.Email"
             placeholder="Email"
             style="margin-top: 15px"
           >
@@ -28,7 +28,7 @@
           </vs-input>
           <vs-input
             type="password"
-            v-model="password"
+            v-model="staff.Password"
             placeholder="Password"
             style="margin-top: 15px"
           >
@@ -50,37 +50,32 @@
   </div>
 </template>
 <script>
+ import axios from "axios";
 export default {
   name: "create",
   props: {},
   data: () => ({
     active: false,
-    staff: {
-   email: "",
-    password: "",
-    fname: "",
-    lname: "",
-  }
- 
+    staff: { FirstName: "", LastName: "", Email: "", Password: "" },
   }),
 
   methods: {
+    
     create() {
-    //   e.preventDefault();
-    //   const newGamer = {
-    //     id: this.data,
-    //     id: Math.floor(Math.random() * 100),
-    //   };
-    //   if (newGamer.title !== "") {
-    //     this.$emit("add-gamer event", new Gamer);
-    //   }
-    //   this.data = "";
-    let dat = this.staff
-     console.log(dat, "this is theeeeee dattaaaaaaaaaaaa");
+      // let dat = JSON.stringify(this.staff); 
+      // let test = JSON.stringify(dat);
+      axios({
+        method: "post",
+        url: "http://localhost:3000/gamers",
+        data: {
+         dat
+        },
+      });
+      const dat = JSON.stringify(this.staff); 
+      console.log(dat, "this is theeeeee dattaaaaaaaaaaaa");
     },
   },
 };
- 
 </script>
 
 <style scoped>
