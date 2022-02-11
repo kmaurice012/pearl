@@ -8,19 +8,19 @@
       </template>
       <form>
         <div class="con-form" style="padding-left: 80px">
-          <vs-input v-model="staff.FirstName" placeholder="FirstName">
+          <vs-input v-model="FirstName" placeholder="FirstName">
             <template #icon> F</template>
           </vs-input>
-e
+
           <vs-input
-            v-model="staff.LastName"
+            v-model="LastName"
             placeholder="Lastname"
             style="margin-top: 15px"
           >
             <template #icon> L </template>
           </vs-input>
           <vs-input
-            v-model="staff.Email"
+            v-model="Email"
             placeholder="Email"
             style="margin-top: 15px"
           >
@@ -28,7 +28,7 @@ e
           </vs-input>
           <vs-input
             type="password"
-            v-model="staff.Password"
+            v-model="Password"
             placeholder="Password"
             style="margin-top: 15px"
           >
@@ -50,29 +50,40 @@ e
   </div>
 </template>
 <script>
- import axios from "axios";
+import axios from "axios";
 export default {
   name: "create",
   props: {},
   data: () => ({
     active: false,
-    staff: { FirstName: "", LastName: "", Email: "", Password: "" },
+    Email: "",
+    Password: "",
+    FirstName: "",
+    LastName: "",
   }),
 
   methods: {
-    
     create() {
-      // let dat = JSON.stringify(this.staff); 
-      // let test = JSON.stringify(dat);
+      let Firstname = this.FirstName;
+      let LastName = this.LastName;
+      let Email = this.Email;
+      let Password = this.Password;
+
       axios({
         method: "post",
         url: "http://localhost:3000/gamers",
         data: {
-         dat
+          Firstname,
+          LastName,
+          Email,
+          Password,
         },
+      }).then((response) => {
+        this.props.handleSuccessfullFormSubmission(response.data);
+        window.location.reload();
       });
-      const dat = JSON.stringify(this.staff); 
-      console.log(dat, "this is theeeeee dattaaaaaaaaaaaa");
+      // const dat = JSON.stringify(this.staff);
+      // console.log(test, "this is theeeeee dattaaaaaaaaaaaa");
     },
   },
 };

@@ -32,7 +32,8 @@
                 <vs-button
                   :active="active == 0"
                   @click="
-                    () => test(tr.id, tr.FirstName, tr.LastName, tr.Email)"
+                    () => test(tr.id, tr.FirstName, tr.LastName, tr.Email)
+                  "
                 >
                   EDIT
                 </vs-button>
@@ -59,9 +60,11 @@
 
 <script>
 import Gamers from "../services/Users.js";
-import Create from "../components/Create.vue"
+import Create from "../components/Create.vue";
+import axios from "axios";
 let gamers = Gamers.Gamers;
 console.log(gamers, "gameeers");
+
 export default {
   name: "gamers",
   components: {
@@ -74,23 +77,21 @@ export default {
     gamers,
   }),
   methods: {
-    deleteGamer(id) {
-      console.log(id);
-      this.$swal({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        type: "warning",
-        showCancelButton: true,
-        confirmButtonText: "Yes, delete it!",
-      }).then((result) => {
-        if (result.value) {
-          this.$store.dispatch("removeGamer", id).then((res) => {
-            if (res)
-              this.$swal("Deleted!", "Record has been deleted.", "success");
-            else this.$swal("Fail!", "Fail to delete record.", "error");
-          });
-        }
-      });
+    async deleteGamer(id) {
+      await axios
+        .delete(`http://localhost:3000/gamers/${id}`)
+        .then((response) => {
+          console.log(response);
+          window.location.reload();
+          window.location.reload();
+        });
+      //  axios({
+      //   method: "delete",
+      //   url: "http://localhost:3000/gamers",
+      //   data: {
+      //     id: id
+      //   },
+      // })
     },
   },
 };
