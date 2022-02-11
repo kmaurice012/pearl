@@ -30,7 +30,7 @@
               </vs-td>
               <vs-td style="display: flex; gap: 10px">
                 <vs-button
-                  :active="active == 0"
+                 
                   @click="
                     () => test(tr.id, tr.FirstName, tr.LastName, tr.Email)
                   "
@@ -41,7 +41,7 @@
                 <vs-button
                   danger
                   border
-                  :active="active == 1"
+               
                   @click="deleteGamer(tr.id)"
                   :id="tr.id"
                 >

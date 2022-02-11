@@ -64,7 +64,7 @@ export default {
 
   methods: {
     create() {
-      let Firstname = this.FirstName;
+      let FirstName = this.FirstName;
       let LastName = this.LastName;
       let Email = this.Email;
       let Password = this.Password;
@@ -73,13 +73,13 @@ export default {
         method: "post",
         url: "http://localhost:3000/gamers",
         data: {
-          Firstname,
+          FirstName,
           LastName,
           Email,
           Password,
         },
-      }).then((response) => {
-        this.props.handleSuccessfullFormSubmission(response.data);
+      }).then(() => {
+        
         window.location.reload();
       });
       // const dat = JSON.stringify(this.staff);
